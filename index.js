@@ -32,7 +32,8 @@ function readLineAsync(message) {
 }
 
 const initScrapping = async () => {
-  const quantity = await readLineAsync("Cuantas cervezas queres? :)");
+  const quantity = await readLineAsync("Cuantas cervezas queres?: ");
+  const name = await readLineAsync("Cual es tu nombre?: ");
   if (quantity > 0) {
     const url = "https://www.canjeapromo.com.ar/BudweiserSampling2q";
     const browser = await playwright.chromium.launch({ headless: true });
@@ -61,8 +62,6 @@ const initScrapping = async () => {
       continueButton.click();
 
       await page.waitForSelector("div.react-select__control");
-
-      const name = `Juansito Doe`;
 
       const email = faker.internet.email(
         faker.name.fullName(),
