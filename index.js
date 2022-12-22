@@ -64,7 +64,11 @@ const initScrapping = async () => {
 
       const name = `Juansito Doe`;
 
-      const email = faker.internet.email(name, undefined, "gmail.com");
+      const email = faker.internet.email(
+        faker.name.fullName(),
+        undefined,
+        "gmail.com"
+      );
 
       const day = String(randomIntFromInterval(1, 30));
       const month = String(randomIntFromInterval(1, 12));
